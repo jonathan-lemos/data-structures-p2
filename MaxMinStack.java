@@ -78,8 +78,10 @@ public class MaxMinStack<E extends Comparable<E>> {
 
 	public void push(E e) throws IllegalStateException {
 		elems.push(e);
-		if (max.isEmpty() || max.top().compareTo(e) < 0) max.push(e);
-		if (min.isEmpty() || min.top().compareTo(e) > 0) min.push(e);
+		if (e != null) {
+			if (max.isEmpty() || max.top().compareTo(e) < 0) max.push(e);
+			if (min.isEmpty() || min.top().compareTo(e) > 0) min.push(e);
+		}
 	}
 
 	public E pop() {
